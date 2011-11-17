@@ -75,12 +75,30 @@ div#limit{
     border-color: #ccc #888 #555 #bbb;
     height:500px;
     width:800px;
-    right:20%;
+    right:10%;
 }
 div#board{ 
+    background: #000;
     position:absolute;
-    right: 30%;
-    top: 50px;
 }
-
-
+.pedal{
+    float: left;
+    margin: 3px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(f, f, f, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(f, f, f, .8);
+    box-shadow: 0 0 .3em rgba(f, f, f, .8);
+}
+#mxr{
+    width: 60px ;
+    height: 85px ;
+    background: #FF0;
+}
+#boss{
+    width: 70px ;
+    height: 100px ;
+    background: #F00;
+}
