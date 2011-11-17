@@ -19,8 +19,8 @@ function create(w,h){
     board.css({'width': w+'px' ,'height': h+'px'});
     controlPedalboarPosition();
 };
-function createped(w,h,id){
-    board.append("<div id='"+id+"'class='pedal'></div>");
+function createped(id){
+    limit.append("<div id='"+id+"'class='pedal'></div>");
     ped = $(".pedal");
     ped.draggable({containment: "#limit"});
 };
@@ -38,15 +38,15 @@ function controlPedalboarPosition(){
 
 
 //------ events----- //
-
-pedalsIV.click(function(){create(70,100)});
-pedalsVI.click(function(){create(50,500)});
-pedalsVIII.click(function(){create(400,200)});
-pedalsX.click(function(){create(500,200)});
+// 1pedal width=90 height=150
+pedalsIV.click(function(){create(360,150)});
+pedalsVI.click(function(){create(540,150)});
+pedalsVIII.click(function(){create(360,300)});
+pedalsX.click(function(){create(450,300)});
 pedalsCustom.click(function(){create(200,100)});
 
-mxr.click(function(){createped(70,100,'mxr')});
-boss.click(function(){createped(70,100,'boss')});
+mxr.click(function(){createped('mxr')});
+boss.click(function(){createped('boss')});
 
 
 });
