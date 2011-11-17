@@ -81,6 +81,14 @@ div#board{
     background: #000;
     position:absolute;
 }
+div#height{
+    position:absolute;
+    right:0;
+}
+div#width{
+    position:absolute;
+    top:0%;
+}
 .pedal{
     float: left;
     margin: 3px;
@@ -101,4 +109,9 @@ div#board{
     width: 70px ;
     height: 125.5px ;
     background: #F00;
+}
+#rocktron{
+    width: 150px ;
+    height: 80px ;
+    background: #FF7;
 }
