@@ -21,7 +21,7 @@ function create(w,h){
 };
 function createped(w,h,id){
     board.append("<div id='"+id+"'class='pedal'></div>");
-    ped = $("#"+id);
+    ped = $(".pedal");
     ped.draggable({containment: "#limit"});
 };
 
