@@ -90,6 +90,7 @@ div#width{
     top:0%;
 }
 .pedal{
+    position:relative;
     float: left;
     margin: 3px;
     border: 2px solid #333;
@@ -100,6 +101,7 @@ div#width{
     -webkit-box-shadow: 0 0 .3em rgba(f, f, f, .8);
     box-shadow: 0 0 .3em rgba(f, f, f, .8);
 }
+.pedal.ui-draggable-dragging{background:#FFF !important;}
 #mxr{
     width: 60px ;
     height: 111px ;
