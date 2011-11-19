@@ -101,7 +101,36 @@ div#width{
     -webkit-box-shadow: 0 0 .3em rgba(f, f, f, .8);
     box-shadow: 0 0 .3em rgba(f, f, f, .8);
 }
-.pedal.ui-draggable-dragging{background:#FFF !important;}
+.pedal.ui-draggable-dragging input{background:#FFF !important;}
+.pedal.ui-draggable-dragging {background:#FFF !important;}
+.pedal .view{
+    padding: 2px 2px;
+    margin: 2px 0px;
+    cursor: text;
+    height: 1em;
+}
+.view{
+    position:relative;
+    top:40%;
+    margin-top:10px;
+    text-align:center;
+}
+.view:hover input{
+    background-color: #ffffcc;
+}
+.inplace, .pedal input {
+    margin: 0px;
+    padding-left: 1px;
+}
+input{
+    height:20px !important;
+    width: 50px !important;
+    text-align:center;
+    border-style: none;
+}
+.handle {
+    cursor: move;
+}
 #mxr{
     width: 60px ;
     height: 111px ;
@@ -117,3 +146,13 @@ div#width{
     height: 80px ;
     background: #FF7;
 }
+
+#trash {
+    border: solid #000;
+    float: right; 
+    width: 10%; 
+    min-height: 1em; 
+    padding: 1%;
+    text-align: center;
+} 
+

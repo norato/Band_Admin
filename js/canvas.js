@@ -12,6 +12,7 @@ boss = $("#Boss");
 rocktron = $("#Rocktron");
 
 limit = $("#limit");
+trash = $("#trash");
 
 //------ functions----- //
 
@@ -21,7 +22,7 @@ function create(w,h){
     controlPedalboarPosition();
 };
 function createped(id){
-    limit.append("<div id='"+id+"'class='pedal'></div>");
+    limit.append("<div id='"+id+"'class='pedal'><div name='oneclick' class=view><input id='"+id+"' name='"+id+"' value='"+id+"'/></div></div>");
     ped = $(".pedal");
     ped.draggable({containment: "#limit"});
 };
@@ -42,6 +43,13 @@ function controlPedalboarPosition(){
               'left':(limit_width- board_left)});
 };
 
+
+trash.droppable({
+    drop: function(ev, ui) {
+        ui.draggable.remove();
+        }
+});
+
 //------ events----- //
 // 1pedal width=90 height=150
 pedalsIV.click(function(){create(360,150)});
@@ -55,6 +63,6 @@ boss.click(function(){createped('boss')});
 rocktron.click(function(){createped('rocktron')});
 
 
-});
 
 
+}); //--END OF SCRIPT
