@@ -147,6 +147,12 @@ input{
     background: #FF7;
 }
 
+#wah{
+    width:129px;
+    height:279px;
+    background: #666;
+}
+
 #trash {
     border: solid #000;
     float: right; 

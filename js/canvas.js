@@ -7,9 +7,11 @@ pedalsX = $("#pedalsX");
 pedalsCustom = $("#pedalsCustom");
 
 board = $("#board");
+
 mxr = $("#MXR");
 boss = $("#Boss");
 rocktron = $("#Rocktron");
+wah = $("#Wah");
 
 limit = $("#limit");
 trash = $("#trash");
@@ -20,6 +22,7 @@ trash = $("#trash");
 function create(w,h){
     board.css({'width': w+'px' ,'height': h+'px'});
     controlPedalboarPosition();
+    board.resizable();
 };
 function createped(id){
     limit.append("<div id='"+id+"'class='pedal'><div name='oneclick' class=view><input id='"+id+"' name='"+id+"' value='"+id+"'/></div></div>");
@@ -48,7 +51,7 @@ trash.droppable({
     drop: function(ev, ui) {
         ui.draggable.remove();
         }
-});
+}).draggable({containment: 'document'});
 
 //------ events----- //
 // 1pedal width=90 height=150
@@ -61,6 +64,7 @@ pedalsCustom.click(function(){create(600,400)});
 mxr.click(function(){createped('mxr')});
 boss.click(function(){createped('boss')});
 rocktron.click(function(){createped('rocktron')});
+wah.click(function(){createped('wah')});
 
 
 
