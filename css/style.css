@@ -90,8 +90,7 @@ div#width{
     top:0%;
 }
 .pedal{
-    position:relative;
-    float: left;
+    position:absolute;
     margin: 3px;
     border: 2px solid #333;
     -moz-border-radius: 10px;
@@ -102,7 +101,12 @@ div#width{
     box-shadow: 0 0 .3em rgba(f, f, f, .8);
 }
 .pedal.ui-draggable-dragging input{background:#FFF !important;}
-.pedal.ui-draggable-dragging {background:#FFF !important;}
+.pedal.ui-draggable-dragging {
+    background:#FFF !important;
+    z-index: 2;
+}
+
+
 .pedal .view{
     padding: 2px 2px;
     margin: 2px 0px;
@@ -124,9 +128,10 @@ div#width{
 }
 input{
     height:20px !important;
-    width: 50px !important;
+    width: 90% !important;
     text-align:center;
     border-style: none;
+    font-size:1.4em;
 }
 .handle {
     cursor: move;

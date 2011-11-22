@@ -22,12 +22,17 @@ trash = $("#trash");
 function create(w,h){
     board.css({'width': w+'px' ,'height': h+'px'});
     controlPedalboarPosition();
-    board.resizable();
 };
 function createped(id){
     limit.append("<div id='"+id+"'class='pedal'><div name='oneclick' class=view><input id='"+id+"' name='"+id+"' value='"+id+"'/></div></div>");
     ped = $(".pedal");
     ped.draggable({containment: "#limit"});
+    ped.droppable({
+        tolerance: 'touch',
+        drop: function(ev, ui){
+            var position = $(this).position().left - 30 - ui.draggable[0].clientWidth;
+            ui.draggable.css({"left": position+"px"});
+    }});
 };
 
 function controlPedalboarPosition(){
