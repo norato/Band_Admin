@@ -1,0 +1,24 @@
+/.bundle
+/db/*.sqlite3
+/log/*.log
+/tmp
+/logs
+/public/ckeditor_assets/
+/config/database.yml
+/config/sam.yml
+/config/mail.yml
+*.swo
+*.swp
+*~
+
+# ignore automatic gemset usage (rvm)
+.rvmrc
+
+# ignore personal TODO file
+.todo
+
+spec/resources/downloads
+
+.~lock*
+
+coverage
