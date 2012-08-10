@@ -20,12 +20,8 @@ gem 'rabl'
 gem 'gon'
 gem 'multi_json', '~>1.3.0'
 gem 'erb2haml'
-gem 'simple-navigation',
-  git: 'https://github.com/rodrigomanhaes/simple-navigation.git',
-  branch: 'preceding_text'
 gem 'nokogiri'
 gem 'mime-types'
-gem "nsivideogranulate", "~> 0.0.2"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -47,7 +43,6 @@ group :test, :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'capistrano'
-  gem 'tire-mock_client', github: 'natanael-araujo/tire-mock_client'
   gem 'spork-rails', '~> 3.2.0'
   gem 'debugger'
   gem 'simplecov', require: false
