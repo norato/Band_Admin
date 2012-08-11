@@ -2,11 +2,11 @@
 require 'spec_helper'
 
 describe Mala do
-	it 'retorna as dimensões da mala' do
+	it 'retorna as dimensões' do
 		Mala.new(largura: 630 , comprimento: 320).dimensoes.should == [630, 320]
 	end
 
-	it 'retorna os pedais que foram adicionados na mala' do
+	it 'adiciona pedal' do
     mala = create(:mala)
     pedal = create(:pedal)
     pedal2 = create(:pedal)
@@ -15,7 +15,7 @@ describe Mala do
     mala.pedais.should include(pedal2, pedal)
 	end
 
-  it 'retorna se mala possue espaço para colocar pedal' do
+  it 'vefifica espaço livre' do
     mala = create(:mala, largura: 200 , comprimento: 150)
     mala.area.should == 30000
     pedal = Pedal.new(largura: 125, comprimento: 125)
@@ -36,7 +36,7 @@ describe Mala do
     mala.corrente_total.should == 600
   end
 
-  it 'verificar area disponível na mala' do
+  it 'verificar area disponível' do
     mala = create(:mala, largura: 300 , comprimento: 150)
     mala.area.should == 45000
     pedal = Pedal.new(largura: 60, comprimento: 125)
@@ -45,8 +45,14 @@ describe Mala do
     mala.adicionar_pedal(pedal)
     mala.adicionar_pedal(pedal2)
     mala.adicionar_pedal(pedal3)
-    # area de cada pedal com cabo (60 + 20) * (125 +10) = 10800mm
-    # area 3 pedais 32400mm
     mala.area.should == 12600
+  end
+
+  it 'adiciona fonte' do
+    mala = create(:mala, largura: 300 , comprimento: 150)
+    fonte = create(:fonte, largura: 100 , comprimento: 60)
+    mala.adicionar_fonte(fonte)
+    mala.alimentacao.should include(fonte)
+    mala.area.should == 36200
   end
 end

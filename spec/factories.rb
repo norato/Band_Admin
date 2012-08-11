@@ -12,4 +12,10 @@ FactoryGirl.define do
     largura 630
     comprimento 320
   end
+  factory :fonte do
+    nome "Fonte"
+    corrente 1000
+    largura 60
+    comprimento 100
+  end
 end

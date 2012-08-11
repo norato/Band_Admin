@@ -6,6 +6,6 @@ class ListaDePedaisParaMala < ActiveRecord::Migration
   end
 
   def down
-    drop_table :pedals_malas
+    drop_table :malas_pedals
   end
 end

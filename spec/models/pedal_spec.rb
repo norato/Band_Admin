@@ -3,16 +3,14 @@
 require 'spec_helper'
 
 describe Pedal do
-  it 'retorna as dimensões do pedal' do
+  it 'retorna as dimensões' do
     Pedal.new(largura: 60, comprimento: 125).dimensoes.should == [60, 125]
   end
 
-  it 'retorna a area com os cabos' do
-  	Pedal.new(largura: 60, comprimento: 125).area_com_cabo.should == 10800
-  end
-
-  it 'retorna as medidas com os cabos' do
-		Pedal.new(largura: 60, comprimento: 125).largura_cabo.should == 80
-		Pedal.new(largura: 60, comprimento: 125).comprimento_cabo.should == 135
+  it 'retorna as medidas e area ocupada' do
+    pedal = Pedal.new(largura: 60, comprimento: 125)
+    pedal.area.should == 10800
+		pedal.largura_util.should == 80
+		pedal.comprimento_util.should == 135
 	end
 end

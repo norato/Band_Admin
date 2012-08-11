@@ -1,5 +1,5 @@
 class Pedal < ActiveRecord::Base
-  attr_accessor :comprimento, :corrente, :largura, :nome, :tensao, :tipo
+  attr_accessible :comprimento, :corrente, :largura, :nome, :tensao, :tipo
   has_and_belongs_to_many :malas
   belongs_to :mala
 
@@ -7,15 +7,15 @@ class Pedal < ActiveRecord::Base
   	[largura, comprimento]
   end
 
-  def area_com_cabo
-  	largura_cabo * comprimento_cabo
+  def area
+  	largura_util * comprimento_util
   end
 
-  def largura_cabo
+  def largura_util
   	largura + 20
   end
 
-  def comprimento_cabo
+  def comprimento_util
   	comprimento + 10
   end
 end

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120811145023) do
+ActiveRecord::Schema.define(:version => 20120811211606) do
+
+  create_table "fontes", :force => true do |t|
+    t.string   "nome"
+    t.integer  "corrente"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "comprimento"
+    t.integer  "largura"
+  end
+
+  create_table "fontes_malas", :force => true do |t|
+    t.integer "mala_id"
+    t.integer "fonte_id"
+  end
 
   create_table "malas", :force => true do |t|
     t.string   "nome"
