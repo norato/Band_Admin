@@ -6,4 +6,16 @@ class Pedal < ActiveRecord::Base
   def dimensoes
   	[largura, comprimento]
   end
+
+  def area_com_cabo
+  	largura_cabo * comprimento_cabo
+  end
+
+  def largura_cabo
+  	largura + 20
+  end
+
+  def comprimento_cabo
+  	comprimento + 10
+  end
 end

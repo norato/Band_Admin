@@ -10,38 +10,35 @@ class Mala < ActiveRecord::Base
   end
 
   def adicionar_pedal(pedal)
-    if pedal_cabo(pedal)[0] < largura_livre && pedal_cabo(pedal)[1] < comprimento
+    if pedal.largura_cabo < largura_livre && pedal.comprimento_cabo < comprimento
       pedais << pedal
     else
       "Mala não possue espaço para pedal"
     end
   end
 
-  def espaco_livre
-    [largura_livre, comprimento_livre]
+  def corrente_total
+    unless pedais.empty?
+      pedais.map{|p| p.corrente}.reduce{|soma, n| soma += n}
+    end
+  end
+
+  def area
+    area = largura * comprimento
+    if pedais.empty?
+      area
+    else
+      area - pedais.map { |p| p.area_com_cabo  }.reduce{|soma , n| soma + n}
+    end
   end
   
+  private 
   def largura_livre
     if pedais.empty?
       largura
     else
-    	espaco_para_cabo = 20
-    	largura_pedais = pedais.map {|p| p.largura + espaco_para_cabo}.reduce{|soma, n| soma += n}
-    	largura - largura_pedais
+      largura_pedais = pedais.map {|p| p.largura_cabo}.reduce{|soma, n| soma += n}
+      largura - largura_pedais
     end
-  end
-
-  def comprimento_livre
-    if pedais.empty?
-      comprimento
-    else
-    	espaco_para_cabo = 10
-    	comprimento_pedais = pedais.map{|p| p.comprimento}.max
-    	comprimento - (comprimento_pedais + espaco_para_cabo)
-    end
-  end
-
-  def pedal_cabo(pedal)
-    [pedal.largura + 20 , pedal.comprimento + 10 ]
   end
 end
