@@ -18,4 +18,8 @@ FactoryGirl.define do
     largura 60
     comprimento 100
   end
+  factory :saida_fonte do
+    tensao 9
+    centro_negativo true
+  end
 end
