@@ -10,7 +10,10 @@ describe SaidaFonte do
   end
 
   it 'conectar somente a um pedal' do
-  	saida = SaidaFonte.new()
+    fonte = create(:fonte)
+
+    saida = SaidaFonte.new()
+    fonte.adicionar_saida(saida)
   	pedal = create(:pedal)
   	saida.conectar(pedal)
   	saida.pedal.should == pedal
@@ -20,9 +23,30 @@ describe SaidaFonte do
   end
 
   it 'informa a conrente do pedal conectado' do
+    fonte = create(:fonte)
     saida = create(:saida_fonte)
+    fonte.adicionar_saida(saida)
     pedal = create(:pedal)
     saida.conectar(pedal)
-    saida.corrente.should == pedal.corrente
+    saida.corrente_pedal.should == pedal.corrente
+  end
+
+  it 'informa qual fonte a saida pertence e corrente' do
+    fonte = create(:fonte, corrente:150)
+
+    saida = create(:saida_fonte)
+    fonte.adicionar_saida(saida)
+
+    saida.fonte.should == fonte
+    saida.fonte.corrente_disponivel.should.should == 150
+  end
+
+  it 'corrente disponível para pedal' do
+    fonte = create(:fonte, corrente:150)
+
+    saida = create(:saida_fonte)
+    fonte.adicionar_saida(saida)
+    pedal = create(:pedal, corrente: 200)
+    saida.conectar(pedal).should == "Corrente do pedal superior ao disponível"
   end
 end

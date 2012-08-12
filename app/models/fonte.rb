@@ -23,4 +23,20 @@ class Fonte < ActiveRecord::Base
   def adicionar_saida(saida)
     saidas << saida
   end
+
+  def corrente_disponivel
+    corrente - corrente_total
+  end
+
+  def corrente_total
+    if saidas.empty?
+      0
+    else
+      saidas.map{|s| s.corrente_pedal}.reduce{|soma, n| soma += n}
+    end
+  end
+
+  def pedais
+    saidas.map { |s| s.pedal}
+  end
 end

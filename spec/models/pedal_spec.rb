@@ -10,7 +10,7 @@ describe Pedal do
   it 'retorna as medidas e area ocupada' do
     pedal = Pedal.new(largura: 60, comprimento: 125)
     pedal.area.should == 10800
-	  pedal.largura_util.should == 80
+	pedal.largura_util.should == 80
     pedal.comprimento_util.should == 135
 	end
 end
