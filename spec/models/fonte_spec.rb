@@ -10,4 +10,10 @@ describe Fonte do
     fonte.comprimento_util.should == 80
     fonte.area.should == 8800
   end
+  it 'verifica a quantidade de saidas' do
+    fonte = create(:fonte)
+    saida = create(:saida_fonte)
+    fonte.adicionar_saida saida
+    fonte.saidas.should include(saida)
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120811222918) do
+ActiveRecord::Schema.define(:version => 20120812154923) do
 
   create_table "fontes", :force => true do |t|
     t.string   "nome"
@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(:version => 20120811222918) do
   create_table "fontes_malas", :force => true do |t|
     t.integer "mala_id"
     t.integer "fonte_id"
+  end
+
+  create_table "fontes_saida_fontes", :force => true do |t|
+    t.integer "fonte_id"
+    t.integer "saida_fonte_id"
   end
 
   create_table "malas", :force => true do |t|
