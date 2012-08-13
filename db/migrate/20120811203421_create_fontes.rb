@@ -4,6 +4,8 @@ class CreateFontes < ActiveRecord::Migration
       t.string :nome
       t.integer :corrente
 
+      t.references :mala
+
       t.timestamps
     end
   end

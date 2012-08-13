@@ -2,9 +2,10 @@
 
 # Add new inflection rules using the following format
 # (all these examples are active by default):
-# ActiveSupport::Inflector.inflections do |inflect|
-# 		inflect.irregular 'pedal', 'pedais'
-# end
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.plural /al$/i, 'ais'
+  inflect.singular /ais$/i, 'al'
+end
 #
 # These inflection rules are supported but not enabled by default:
 # ActiveSupport::Inflector.inflections do |inflect|

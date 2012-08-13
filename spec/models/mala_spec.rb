@@ -52,7 +52,7 @@ describe Mala do
     mala = create(:mala, largura: 300 , comprimento: 150)
     fonte = create(:fonte, largura: 100 , comprimento: 60)
     mala.adicionar_fonte(fonte)
-    mala.alimentacao.should include(fonte)
+    mala.fontes.should include(fonte)
     mala.area.should == 36200
   end
 end

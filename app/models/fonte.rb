@@ -1,7 +1,6 @@
 class Fonte < ActiveRecord::Base
   attr_accessible :corrente, :nome , :comprimento, :largura, :saidas
-  has_and_belongs_to_many :malas
-  has_and_belongs_to_many :saidas, class_name: 'SaidaFonte'
+  has_many :saidas, class_name: 'SaidaFonte'
   belongs_to :mala
 
   def dimensoes
@@ -32,11 +31,13 @@ class Fonte < ActiveRecord::Base
     if saidas.empty?
       0
     else
-      saidas.map{|s| s.corrente_pedal}.reduce{|soma, n| soma += n}
+      saidas.map(&:corrente_pedal).reduce(:+)
+
+
     end
   end
 
   def pedais
-    saidas.map { |s| s.pedal}
+    saidas.map(&:pedal)
   end
 end

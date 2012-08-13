@@ -11,25 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120812154923) do
+ActiveRecord::Schema.define(:version => 20120811222918) do
 
   create_table "fontes", :force => true do |t|
     t.string   "nome"
     t.integer  "corrente"
+    t.integer  "mala_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "comprimento"
     t.integer  "largura"
-  end
-
-  create_table "fontes_malas", :force => true do |t|
-    t.integer "mala_id"
-    t.integer "fonte_id"
-  end
-
-  create_table "fontes_saida_fontes", :force => true do |t|
-    t.integer "fonte_id"
-    t.integer "saida_fonte_id"
   end
 
   create_table "malas", :force => true do |t|
@@ -40,18 +31,14 @@ ActiveRecord::Schema.define(:version => 20120812154923) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "malas_pedals", :force => true do |t|
-    t.integer "mala_id"
-    t.integer "pedal_id"
-  end
-
-  create_table "pedals", :force => true do |t|
+  create_table "pedais", :force => true do |t|
     t.string   "nome"
     t.integer  "largura"
     t.integer  "comprimento"
     t.integer  "tensao"
     t.integer  "corrente"
     t.string   "tipo"
+    t.integer  "mala_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -59,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20120812154923) do
   create_table "saida_fontes", :force => true do |t|
     t.integer  "tensao",          :default => 9
     t.boolean  "centro_negativo", :default => true
+    t.integer  "pedal_id"
+    t.integer  "fonte_id"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
   end

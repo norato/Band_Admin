@@ -1,10 +1,8 @@
 # encoding: utf-8
 
 class Mala < ActiveRecord::Base
-  attr_accessible :comprimento, :largura, :nome
-  has_and_belongs_to_many :pedais , class_name: 'Pedal'
-  has_and_belongs_to_many :alimentacao , class_name:  'Fonte'
-  has_many :pedals
+  attr_accessible :comprimento, :largura, :nome, :pedais, :fontes
+  has_many :pedais
   has_many :fontes
 
   def dimensoes
@@ -21,7 +19,7 @@ class Mala < ActiveRecord::Base
 
   def corrente_total
     unless pedais.empty?
-      pedais.map{|p| p.corrente}.reduce{|soma, n| soma += n}
+      pedais.map(&:corrente).reduce(:+)
     end
   end
 
@@ -30,20 +28,20 @@ class Mala < ActiveRecord::Base
     if equipamentos.empty?
       area
     else
-      area - equipamentos.map { |p| p.area  }.reduce{|soma , n| soma + n}
+      area - equipamentos.map(&:area).reduce(:+)
     end
   end
 
   def adicionar_fonte(fonte)
     if fonte.largura_util < largura_livre && fonte.comprimento_util < comprimento
-      alimentacao << fonte
+      fontes << fonte
     else
       "Mala não possue espaço para fonte"
     end
   end
 
   def equipamentos
-    pedais + alimentacao
+    pedais + fontes
   end
   
   private 
@@ -51,7 +49,7 @@ class Mala < ActiveRecord::Base
     if pedais.empty?
       largura
     else
-      largura_pedais = pedais.map {|p| p.largura_util}.reduce{|soma, n| soma += n}
+      largura_pedais = pedais.map(&:largura_util).reduce(:+)
       largura - largura_pedais
     end
   end

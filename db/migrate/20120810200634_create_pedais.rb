@@ -1,6 +1,6 @@
-class CreatePedals < ActiveRecord::Migration
+class CreatePedais < ActiveRecord::Migration
   def up
-    create_table :pedals do |t|
+    create_table :pedais do |t|
       t.string :nome
       t.integer :largura
       t.integer :comprimento
@@ -8,10 +8,12 @@ class CreatePedals < ActiveRecord::Migration
       t.integer :corrente
       t.string :tipo
 
+      t.references :mala
+
       t.timestamps
     end
   end
   def down
-    drop_table :pedals
+    drop_table :pedais
   end
 end

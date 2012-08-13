@@ -1,7 +1,7 @@
 class Pedal < ActiveRecord::Base
-  attr_accessible :comprimento, :corrente, :largura, :nome, :tensao, :tipo
-  has_and_belongs_to_many :malas
-  belongs_to :saida_fonte
+  attr_accessible :comprimento, :corrente, :largura, :nome, :tensao, :tipo, :mala, :saida_fonte
+  belongs_to :mala
+  has_one :saida_fonte
 
   def dimensoes
   	[largura, comprimento]
