@@ -32,12 +32,20 @@ class Fonte < ActiveRecord::Base
       0
     else
       saidas.map(&:corrente_pedal).reduce(:+)
-
-
     end
   end
 
   def pedais
     saidas.map(&:pedal)
+  end
+
+  def expecificacoes
+    lista =  {}
+    if saidas.empty?
+      lista
+    else
+      lista[9] = saidas.map(&:tensao).count(9)
+    end
+    lista
   end
 end

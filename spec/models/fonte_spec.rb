@@ -49,4 +49,21 @@ describe Fonte do
 
     fonte.pedais.should include(pedal1, pedal2)
   end
+
+  it 'retorna numero de saidas' do
+    fonte = create(:fonte)
+    fonte.expecificacoes.should == {}
+
+    saida1 = create(:saida_fonte)
+    fonte.adicionar_saida(saida1)
+    pedal1 = create(:pedal)
+    saida1.conectar(pedal1)
+
+    saida2 = create(:saida_fonte)
+    fonte.adicionar_saida(saida2)
+    pedal2 = create(:pedal)
+    saida2.conectar(pedal2)
+
+    fonte.expecificacoes.should == {9 => 2}
+  end
 end

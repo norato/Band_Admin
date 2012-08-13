@@ -2,18 +2,18 @@
 require 'spec_helper'
 
 describe Mala do
-	it 'retorna as dimensões' do
-		Mala.new(largura: 630 , comprimento: 320).dimensoes.should == [630, 320]
-	end
+  it 'retorna as dimensões' do
+    Mala.new(largura: 630 , comprimento: 320).dimensoes.should == [630, 320]
+  end
 
-	it 'adiciona pedal' do
+  it 'adiciona pedal' do
     mala = create(:mala)
     pedal = create(:pedal)
     pedal2 = create(:pedal)
     mala.adicionar_pedal(pedal)
     mala.adicionar_pedal(pedal2)
     mala.pedais.should include(pedal2, pedal)
-	end
+  end
 
   it 'vefifica espaço livre' do
     mala = create(:mala, largura: 200 , comprimento: 150)
