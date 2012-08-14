@@ -10,10 +10,10 @@ class Mala < ActiveRecord::Base
   end
 
   def adicionar_pedal(pedal)
-    if pedal.largura_util < largura_livre && pedal.comprimento_util < comprimento
+    if pedal.area <= area
       pedais << pedal
     else
-      "Mala não possue espaço para pedal"
+      raise "Mala não possue espaço para #{pedal.nome}"
     end
   end
 
@@ -33,15 +33,20 @@ class Mala < ActiveRecord::Base
   end
 
   def adicionar_fonte(fonte)
-    if fonte.largura_util < largura_livre && fonte.comprimento_util < comprimento
+    if fonte.area <= area
       fontes << fonte
     else
-      "Mala não possue espaço para fonte"
+      raise "Mala não possue espaço para #{fonte.nome}"
     end
   end
 
   def equipamentos
     pedais + fontes
+  end
+
+  def redimencionar(largura, comprimento)
+    self.largura = largura
+    self.comprimento = comprimento
   end
   
   private 

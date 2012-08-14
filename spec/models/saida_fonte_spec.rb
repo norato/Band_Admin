@@ -47,7 +47,7 @@ describe SaidaFonte do
     saida = create(:saida_fonte)
     fonte.adicionar_saida(saida)
     pedal = create(:pedal, corrente: 200)
-    saida.conectar(pedal).should == "Corrente do pedal superior ao disponível"
+    lambda{saida.conectar(pedal)}.should raise_error
   end
 
   it 'pedal com tensao maior não pode ser conectado' do
@@ -57,7 +57,7 @@ describe SaidaFonte do
     fonte.adicionar_saida(saida)
     
     pedal = create(:pedal, tensao: 18)
-    saida.conectar(pedal).should == "Corrente do pedal superior ao disponível"
+    lambda{saida.conectar(pedal)}.should raise_error
     saida.pedal.should == nil
   end
 end

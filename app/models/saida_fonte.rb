@@ -6,10 +6,10 @@ class SaidaFonte < ActiveRecord::Base
   belongs_to :pedal
   
   def conectar(pedal)
-    if pedal.corrente < fonte.corrente_disponivel && pedal.tensao == tensao
+    if pedal.corrente <= fonte.corrente_disponivel && pedal.tensao == tensao
       self.pedal = pedal
     else
-      "Corrente do pedal superior ao disponível"
+      raise "Corrente do pedal superior ao disponível"
     end
   end
 
