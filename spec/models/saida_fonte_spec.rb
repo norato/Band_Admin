@@ -58,5 +58,6 @@ describe SaidaFonte do
     
     pedal = create(:pedal, tensao: 18)
     saida.conectar(pedal).should == "Corrente do pedal superior ao disponível"
+    saida.pedal.should == nil
   end
 end

@@ -63,7 +63,19 @@ describe Fonte do
     fonte.adicionar_saida(saida2)
     pedal2 = create(:pedal)
     saida2.conectar(pedal2)
-
+    
     fonte.expecificacoes.should == {9 => 2}
+
+    saida3 = create(:saida_fonte, tensao:12)
+    fonte.adicionar_saida(saida3)
+    pedal3 = create(:pedal , tensao: 12)
+    saida3.conectar(pedal3)
+
+    saida4 = create(:saida_fonte, tensao:18)
+    fonte.adicionar_saida(saida4)
+    pedal4 = create(:pedal, tensao: 18)
+    saida4.conectar(pedal4)
+
+    fonte.expecificacoes.should == {9 => 2, 12=>1, 18=>1}
   end
 end

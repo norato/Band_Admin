@@ -44,8 +44,11 @@ class Fonte < ActiveRecord::Base
     if saidas.empty?
       lista
     else
-      lista[9] = saidas.map(&:tensao).count(9)
+      saidas.map(&:tensao).uniq.each do |s|
+        lista[s] = saidas.map(&:tensao).count(s)
+      end
     end
     lista
   end
+
 end
