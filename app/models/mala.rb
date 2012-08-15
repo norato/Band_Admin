@@ -44,9 +44,24 @@ class Mala < ActiveRecord::Base
     pedais + fontes
   end
 
-  def redimencionar(largura, comprimento)
+  def redimensionar(largura, comprimento)
     self.largura = largura
     self.comprimento = comprimento
+  end
+
+  def lista_equipamentos
+    lista = {}
+    unless fontes.empty?
+      lista['Fonte'] = fontes.map{|p| [p.nome , 
+                      {'Especificações'=>p.especificacoes_humanizado+ 
+                        ". Corrente total: #{p.corrente}mA"}]}
+    end
+    unless pedais.empty?
+      pedais.map(&:tipo).uniq.each do |tipo|
+        lista[tipo] = pedais.where(:tipo => tipo).map(&:nome)
+      end
+    end
+    lista
   end
   
   private 
