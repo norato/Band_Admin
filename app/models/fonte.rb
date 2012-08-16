@@ -86,22 +86,9 @@ class Fonte < ActiveRecord::Base
     string = ""
     lista = []
     hash.each do |chave, valor|
-      if valor > 1
-        lista << ("#{valor} saidas de #{chave}v")
-      else
-        lista << ("#{valor} saida de #{chave}v")
-      end
+      lista << ("#{valor} saida#{valor > 1 ? 's' : ''} de #{chave}v")
     end
-    lista.each do |posicao|
-      if lista[0] == posicao
-        string.concat(posicao)
-      elsif lista.last == posicao
-        string.concat(" e #{posicao}")
-      else
-        string.concat(", #{posicao}")
-      end
-    end 
-    string
+    lista.to_sentence.gsub(/\,? and /, ' e ')
   end
 
 end

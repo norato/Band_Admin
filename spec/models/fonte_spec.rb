@@ -106,7 +106,7 @@ describe Fonte do
       5.times do 
         fonte.adicionar_saida(create(:saida_fonte))
       end
-      fonte.saidas.count.should == 5
+      fonte.should have(5).saidas
       lambda{fonte.adicionar_saida(create(:saida_fonte))}.should raise_error
     end
     it 'Após definir as especificacoes pode-se adicionar mais saidas dos tipos especificados' do
