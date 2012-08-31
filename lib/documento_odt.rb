@@ -2,7 +2,6 @@ require 'fileutils'
 require 'nokogiri'
 require 'rubygems'
 require 'rexml/document'
-
 include REXML
 include Zip
 
@@ -55,6 +54,47 @@ class DocumentoOdt
 
   def adicionar_texto(texto)
     Element.new("text:p", @tag_texto).add_text(texto)
+  end
+
+  def cria_tabela
+    binding.pry
+    style_table_properties = Element.new("style:style", @tag_estilo)
+    style_table_properties.add_attribute("style:family","table")
+    style_table_properties.add_attribute("style:name","Tabela1")
+
+    tag_tabela_properties = Element.new("style:table-properties", style_table_properties)
+    tag_tabela_properties.add_attribute("table:align","margins")
+    tag_tabela_properties.add_attribute("style:width","17cm")
+
+    style_column_properties = Element.new("style:style", @tag_estilo)
+    style_column_properties.add_attribute("style:name","Tabela1.A")
+    style_column_properties.add_attribute("style:family","table-column")
+    tag_column_properties = Element.new("style:table-column-properties", style_column_properties)
+    tag_column_properties.add_attribute("style:column-width","17cm")
+    tag_column_properties.add_attribute("style:rel-column-width","65535*")
+
+    style_cell_properties = Element.new("style:style", @tag_estilo)
+    style_cell_properties.add_attribute("style:name","Tabela1.A1")
+    style_cell_properties.add_attribute("style:family","table-cell")
+    tag_cell_properties = Element.new("style:table-cell-properties",style_cell_properties)
+    tag_cell_properties.add_attribute("fo:border","0.002cm solid #000000")
+    tag_cell_properties.add_attribute("fo:padding","0.097cm")
+
+
+    tag_tabela = Element.new("table:table", @tag_texto)
+    tag_tabela.add_attribute("table:name","Tabela1")
+    tag_tabela.add_attribute("table:style-name","Tabela1")
+
+    tag_column = Element.new("table:table-column", tag_tabela)
+    tag_column.add_attribute("table:style-name","Tabela1.A")
+
+    tag_row = Element.new("table:table-row", tag_column)
+
+    tag_table_cell = Element.new("table:table-cell", tag_row)
+    tag_table_cell.add_attribute("table:style-name","Tabela1.A1")
+    tag_table_cell.add_attribute("office:value-type","string")
+
+    Element.new("text:p", tag_table_cell) 
   end
 
   def salvar!

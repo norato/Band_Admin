@@ -64,4 +64,14 @@ describe DocumentoOdt do
     arquivo_odt.should match algum_texto
     File.delete(documento.arquivo)
   end
+
+  it 'cria uma nova tabela ao documento' do
+    documento = DocumentoOdt.new('nova_tabela')
+    documento.cria_tabela()
+    documento.salvar!
+    tabela_ = ZipFile.open(documento.arquivo)
+    tabela = Nokogiri::XML(tabela_.read("content.xml"))
+    tabela.should have(1).xpath('//table:table')
+    # File.delete(documento.arquivo)
+  end
 end
