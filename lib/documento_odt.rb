@@ -57,7 +57,6 @@ class DocumentoOdt
   end
 
   def cria_tabela
-    binding.pry
     style_table_properties = Element.new("style:style", @tag_estilo)
     style_table_properties.add_attribute("style:family","table")
     style_table_properties.add_attribute("style:name","Tabela1")
