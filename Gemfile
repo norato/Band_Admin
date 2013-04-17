@@ -4,7 +4,7 @@ gem 'rails', '3.2.7'
 
 gem 'devise', '~>2.1.0'
 gem 'cancan', '~>1.6.7'
-gem 'pg', '~> 0.14.0'
+gem 'sqlite3-ruby' 
 gem 'delorean'
 gem 'inherited_resources', '~> 1.3.0'
 gem 'haml', '~> 3.1.4'
@@ -44,7 +44,6 @@ group :test, :development do
   gem 'pry-rails'
   gem 'capistrano'
   gem 'spork-rails', '~> 3.2.0'
-  gem 'debugger'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'zippy'
