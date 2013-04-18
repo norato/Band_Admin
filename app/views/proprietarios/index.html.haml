@@ -1,0 +1,14 @@
+%h1 Gerenciador de Proprietários
+%table
+  %tr
+    %th Nome
+    %th Contato
+    -@proprietarios.each do |proprietario|
+      %tr
+        %td= proprietario.nome
+        %td= proprietario.contato
+        %td= link_to 'Show', proprietario
+        %td= link_to 'Edit', edit_proprietario_path(proprietario)
+        %td= link_to 'Excluir', proprietario, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+= link_to 'Adicionar Proprietário', new_proprietario_path

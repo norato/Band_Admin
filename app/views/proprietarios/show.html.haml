@@ -1,0 +1,11 @@
+%p#notice= notice
+%p
+  %b Nome:
+  = @proprietario.nome
+%p
+  %b Contato:
+  = @proprietario.contato
+
+= link_to 'Editar', edit_proprietario_path(@proprietario)
+  
+= link_to 'Voltar', proprietarios_path

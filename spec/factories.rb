@@ -18,4 +18,8 @@ FactoryGirl.define do
     tensao 9
     centro_negativo true
   end
+  factory :proprietario do
+    nome "Alisson Zakka"
+    contato "zakka_guitarista@gmail.com"
+  end
 end
