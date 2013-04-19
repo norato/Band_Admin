@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+	%b Nome:
+	= @local.nome
+%p
+	%b Endereço:
+	= @local.endereco
+%p
+	%b Cidade:
+	= @local.cidade
+%p
+	%b Tipo:
+	= @local.tipo
+
+= link_to 'Editar', edit_local_path(@local)
+= link_to 'Voltar', locais_path

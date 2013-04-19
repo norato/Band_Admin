@@ -1,0 +1,19 @@
+%h1 Gerenciador de Locais
+%table
+	%tr
+		%th Nome
+		%th Endereço
+		%th Cidade
+		%th Tipo
+		-@locais.each do |local|
+			%tr
+				%td= local.nome
+				%td= local.endereco
+				%td= local.cidade
+				%td= local.tipo
+				
+				%td= link_to 'Show', local
+				%td= link_to 'Editar', edit_local_path(local)
+				%td= link_to 'Excluir', local, method: :delete, data: {confirm: "Tem certeza que irá deletar #{local.nome}?"}
+= link_to 'Adicionar Local', new_local_path
+
