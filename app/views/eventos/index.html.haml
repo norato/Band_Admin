@@ -1,0 +1,14 @@
+%h1 Gerenciador de Eventos
+%table
+	%tr
+		%th Nome
+		%th Data
+		-@eventos.each do |evento|
+			%tr
+				%td= evento.nome
+				%td= evento.data
+				
+				%td= link_to 'Show', evento
+				%td= link_to 'Editar', edit_evento_path(evento)
+				%td= link_to 'Excluir', evento, method: :delete, data: {confirm: "Tem certeza que irá deletar #{evento.nome}?"}
+= link_to 'Adicionar Evento', new_evento_path

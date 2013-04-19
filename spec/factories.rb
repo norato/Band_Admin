@@ -33,7 +33,7 @@ FactoryGirl.define do
     tipo "Bar"
   end
     factory :evento do
-    nome "MyString"
+    nome "Festival de Bandas de Garagem"
     data "14/06/2013"
   end
 end

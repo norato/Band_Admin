@@ -11,7 +11,7 @@ feature 'Gerenciar Proprietários' do
     click_button 'Salvar'
     
     page.should have_content "Nome: Alisson Zakka"
-    page.should have_content "zakka_guitarrista@gmail.com"
+    page.should have_content "Contato: zakka_guitarrista@gmail.com"
   end
   
   scenario 'adicionar proprietário' do
