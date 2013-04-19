@@ -32,4 +32,8 @@ FactoryGirl.define do
     cidade "São Paulo"
     tipo "Bar"
   end
+    factory :evento do
+    nome "MyString"
+    data "14/06/2013"
+  end
 end
