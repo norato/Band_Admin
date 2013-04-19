@@ -43,4 +43,10 @@ FactoryGirl.define do
   factory :repertorio do
     nome "Death Metal"
   end
+    factory :musica do
+    nome "Cuervo"
+    duracao 500
+    bpm 120
+    estilo "Spanish Rock"
+  end
 end
