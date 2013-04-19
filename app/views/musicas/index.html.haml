@@ -1,0 +1,15 @@
+%h1 Gerenciador de Músicas
+%table
+  %tr
+    %th Nome
+    -@musicas.each do |musica|
+      %tr
+        %td= musica.nome
+        %td= musica.duracao
+        %td= musica.bpm
+        %td= musica.estilo
+        %td= link_to 'Show', musica
+        %td= link_to 'Editar', edit_musica_path(musica)
+        %td= link_to 'Excluir', musica, method: :delete, data: { confirm: "Tem certeza que irá deletar #{musica.nome}?"}
+%br
+= link_to 'Adicionar Repertório', new_musica_path

@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %b Nome:
+  = @musica.nome
+%p
+  %b Duração:
+  = @musica.duracao
+%p
+  %b bpm:
+  = @musica.bpm
+%p
+  %b Estilo:
+  = @musica.estilo
+= link_to 'Editar', edit_musica_path(@musica)
+  
+= link_to 'Voltar', musicas_path
