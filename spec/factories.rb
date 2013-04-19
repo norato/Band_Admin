@@ -26,19 +26,21 @@ FactoryGirl.define do
     nome "Alisson Zakka"
     contato "zakka_guitarista@gmail.com"
   end
-    factory :local do
+  factory :local do
     nome "Manifesto"
     endereco "R. Iguatemi, 36C - Itaim Bibi"
     cidade "São Paulo"
     tipo "Bar"
   end
-    factory :evento do
+  factory :evento do
     nome "Festival de Bandas de Garagem"
     data "14/06/2013"
   end
-    factory :organizador do
+  factory :organizador do
     nome "Dedé Muylaert"
     contato "dede_muylaert@foo.com"
   end
-
+  factory :repertorio do
+    nome "Death Metal"
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419123528) do
+ActiveRecord::Schema.define(:version => 20130419133133) do
 
   create_table "eventos", :force => true do |t|
     t.string   "nome"
@@ -69,6 +69,12 @@ ActiveRecord::Schema.define(:version => 20130419123528) do
   create_table "proprietarios", :force => true do |t|
     t.string   "nome"
     t.string   "contato"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "repertorios", :force => true do |t|
+    t.string   "nome"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

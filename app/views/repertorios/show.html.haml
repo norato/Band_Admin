@@ -1,0 +1,8 @@
+%p#notice= notice
+%p
+  %b Nome:
+  = @repertorio.nome
+
+= link_to 'Editar', edit_repertorio_path(@repertorio)
+  
+= link_to 'Voltar', repertorios_path

@@ -3,4 +3,5 @@ BandAdmin::Application.routes.draw do
   resources :locais
   resources :eventos
   resources :organizadors
+  resources :repertorios
 end

@@ -1,0 +1,12 @@
+%h1 Gerenciador de Repertórios
+%table
+  %tr
+    %th Nome
+    -@repertorios.each do |repertorio|
+      %tr
+        %td= repertorio.nome
+        %td= link_to 'Show', repertorio
+        %td= link_to 'Editar', edit_repertorio_path(repertorio)
+        %td= link_to 'Excluir', repertorio, method: :delete, data: { confirm: "Tem certeza que irá deletar #{repertorio.nome}?"}
+%br
+= link_to 'Adicionar Repertório', new_repertorio_path
