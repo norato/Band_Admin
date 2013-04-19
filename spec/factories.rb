@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 FactoryGirl.define do
   factory :pedal do
     largura 60
@@ -18,8 +20,16 @@ FactoryGirl.define do
     tensao 9
     centro_negativo true
   end
+  
+
   factory :proprietario do
     nome "Alisson Zakka"
     contato "zakka_guitarista@gmail.com"
+  end
+    factory :local do
+    nome "Manifesto"
+    endereco "R. Iguatemi, 36C - Itaim Bibi"
+    cidade "São Paulo"
+    tipo "Bar"
   end
 end
