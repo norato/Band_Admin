@@ -36,4 +36,9 @@ FactoryGirl.define do
     nome "Festival de Bandas de Garagem"
     data "14/06/2013"
   end
+    factory :organizador do
+    nome "Dedé Muylaert"
+    contato "dede_muylaert@foo.com"
+  end
+
 end

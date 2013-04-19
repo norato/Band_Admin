@@ -1,0 +1,11 @@
+%p#notice= notice
+%p
+  %b Nome:
+  = @organizador.nome
+%p
+  %b Contato:
+  = @organizador.contato
+
+= link_to 'Editar', edit_organizador_path(@organizador)
+  
+= link_to 'Voltar', organizadors_path

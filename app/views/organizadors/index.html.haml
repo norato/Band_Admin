@@ -1,0 +1,14 @@
+%h1 Gerenciador de Organizadores
+%table
+  %tr
+    %th Nome
+    %th Contato
+    -@organizadors.each do |organizador|
+      %tr
+        %td= organizador.nome
+        %td= organizador.contato
+        %td= link_to 'Show', organizador
+        %td= link_to 'Editar', edit_organizador_path(organizador)
+        %td= link_to 'Excluir', organizador, method: :delete, data: { confirm: "Tem certeza que irá deletar #{organizador.nome}?"}
+%br
+= link_to 'Adicionar Proprietário', new_organizador_path
