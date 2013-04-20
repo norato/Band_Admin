@@ -2,6 +2,9 @@
 %table
   %tr
     %th Nome
+    %th Duração
+    %th bpm
+    %th Estilo
     -@musicas.each do |musica|
       %tr
         %td= musica.nome
@@ -12,4 +15,4 @@
         %td= link_to 'Editar', edit_musica_path(musica)
         %td= link_to 'Excluir', musica, method: :delete, data: { confirm: "Tem certeza que irá deletar #{musica.nome}?"}
 %br
-= link_to 'Adicionar Repertório', new_musica_path
+= link_to 'Adicionar Músicas', new_musica_path

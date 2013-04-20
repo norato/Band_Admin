@@ -7,5 +7,7 @@ class CreateOrdemmusicas < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :ordemmusicas, :repertorio_id
+    add_index :ordemmusicas, :musica_id
   end
 end

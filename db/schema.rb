@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(:version => 20130420191042) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "ordemmusicas", ["musica_id"], :name => "index_ordemmusicas_on_musica_id"
+  add_index "ordemmusicas", ["repertorio_id"], :name => "index_ordemmusicas_on_repertorio_id"
+
   create_table "organizadors", :force => true do |t|
     t.string   "nome"
     t.string   "contato"

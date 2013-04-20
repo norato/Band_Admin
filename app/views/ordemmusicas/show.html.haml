@@ -1,0 +1,14 @@
+%p#notice= notice
+%p
+  %b Ordem:
+  = @ordemmusica.ordem
+%p
+  %b Música:
+  = @ordemmusica.musica.nome
+%p
+  %b Repertório:
+  = @ordemmusica.repertorio.nome
+
+= link_to 'Editar', edit_ordemmusica_path(@ordemmusica)
+  
+= link_to 'Voltar', ordemmusicas_path

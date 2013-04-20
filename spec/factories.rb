@@ -51,7 +51,5 @@ FactoryGirl.define do
   end
   factory :ordemmusica do
     ordem 1
-    repertorio_id 1
-    musica_id 1
   end
 end

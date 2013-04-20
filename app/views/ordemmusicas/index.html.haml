@@ -1,0 +1,16 @@
+%h1 Gerenciador de Ordem das Músicass
+%table
+  %tr
+    %th Ordem
+    %th Música
+    %th Repertório
+    -@ordemmusicas.each do |ordemmusica|
+      %tr
+        %td= ordemmusica.ordem
+        %td= ordemmusica.musica.nome
+        %td= ordemmusica.repertorio.nome
+        %td= link_to 'Show', ordemmusica
+        %td= link_to 'Editar', edit_ordemmusica_path(ordemmusica)
+        %td= link_to 'Excluir', ordemmusica, method: :delete, data: { confirm: "Tem certeza que irá deletar?"}
+%br
+= link_to 'Adicionar Ordem à Música', new_ordemmusica_path
