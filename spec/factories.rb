@@ -49,4 +49,9 @@ FactoryGirl.define do
     bpm 120
     estilo "Spanish Rock"
   end
+  factory :ordemmusica do
+    ordem 1
+    repertorio_id 1
+    musica_id 1
+  end
 end
