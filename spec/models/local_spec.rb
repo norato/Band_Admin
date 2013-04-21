@@ -14,4 +14,12 @@ describe Local do
     local.cidade.should == "São Paulo"
     local.tipo.should == "Bar"
   end
+
+  it 'pertence a um Proprietário' do
+    local = FactoryGirl.create(:local)
+    proprietario = FactoryGirl.create(:proprietario)
+
+    local.proprietario_id = proprietario.id
+    local.proprietario.nome.should == proprietario.nome
+  end
 end
