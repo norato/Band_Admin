@@ -8,6 +8,9 @@
 %p
   %b Local:
   = @evento.local.nome
+%p
+  %b Organizador:
+  = @evento.organizador.nome
 
 = link_to 'Editar', edit_evento_path(@evento)
 = link_to 'Voltar', eventos_path

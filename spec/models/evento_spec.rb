@@ -16,4 +16,12 @@ describe Evento do
     evento.local_id = local.id
     evento.local.nome.should == local.nome
   end
+
+  it 'é organizado por um Organizador' do
+    local = FactoryGirl.create(:local)
+    organizador = FactoryGirl.create(:organizador)
+
+    evento.organizador_id = organizador.id
+    evento.organizador.nome.should == organizador.nome
+  end
 end

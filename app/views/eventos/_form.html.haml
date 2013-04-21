@@ -2,4 +2,5 @@
   = form.input :nome, :label => 'Nome'
   = form.input :data, :label => 'Data'
   = form.input :local_id, as: :select, collection: Local.all.map { |local| [local.nome, local.id] }, prompt: false, :label => "Local"
+  = form.input :organizador_id, as: :select, collection: Organizador.all.map { |organizador| [organizador.nome, organizador.id] }, prompt: false, :label => "Organizador"
   = form.submit 'Salvar'

@@ -7,4 +7,14 @@ describe Organizador do
   	organizador.nome.should == "Dedé Muylaert"
   	organizador.contato.should == "dede_muylaert@foo.com"
   end
+
+  it 'pode organizar vários Eventos' do
+    organizador = FactoryGirl.create(:organizador)
+
+    4.times do
+      organizador.eventos << FactoryGirl.create(:evento)
+    end
+
+    organizador.eventos.count.should == 4
+  end
 end
