@@ -5,12 +5,14 @@
 		%th Endereço
 		%th Cidade
 		%th Tipo
+		%th Proprietário
 		-@locais.each do |local|
 			%tr
 				%td= local.nome
 				%td= local.endereco
 				%td= local.cidade
 				%td= local.tipo
+				%td= local.proprietario.nome
 				
 				%td= link_to 'Show', local
 				%td= link_to 'Editar', edit_local_path(local)

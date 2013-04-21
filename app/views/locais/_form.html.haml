@@ -3,4 +3,5 @@
   = form.input :endereco, :label => 'Endereço'
   = form.input :cidade, :label => 'Cidade'
   = form.input :tipo, :label => 'Tipo'
+  = form.input :proprietario_id, as: :select, collection: Proprietario.all.map { |prop| [prop.nome, prop.id] }, prompt: false, :label => "Proprietário"
   = form.submit 'Salvar'

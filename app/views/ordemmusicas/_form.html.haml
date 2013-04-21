@@ -1,6 +1,6 @@
 = semantic_form_for [@ordemmusica] do |form|
   = form.input :ordem, :label => 'Ordem'
-  = form.input :musica_id, as: :select, input_html: { class: "musica", id: "select_musica" }, collection: Musica.all.map { |musica| [musica.nome, musica.id] }, prompt: false, :label => "Música"
+  = form.input :musica_id, as: :select, collection: Musica.all.map { |musica| [musica.nome, musica.id] }, prompt: false, :label => "Música"
   = form.input :repertorio_id, as: :select, collection: Repertorio.all.map { |repertorio| [repertorio.nome, repertorio.id] } , :label => "Repertório"
 
   = form.submit 'Salvar'
