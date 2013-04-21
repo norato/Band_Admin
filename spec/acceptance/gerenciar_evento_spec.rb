@@ -4,32 +4,52 @@ require 'spec_helper'
 
 
 feature 'Gerenciar Eventos' do
-  def preencher_e_verificar_evento
+  scenario 'adicionar evento' do
+
+    local = FactoryGirl.create(:local)
+    visit new_evento_path
     fill_in 'Nome', :with => "Festival de Bandas de Garagem"
     fill_in 'Data', :with => "14/06/2013"
+
+    select "#{local.nome}", from: "Local"
 
     click_button 'Salvar'
     
     page.should have_content "Nome: Festival de Bandas de Garagem"
     page.should have_content "Data: 14/06/2013"
-  end
+    page.should have_content "Local: #{local.nome}"
   
-  scenario 'adicionar evento' do
-    visit new_evento_path
-    preencher_e_verificar_evento
   end
 
   scenario 'editar evento' do
+    local = FactoryGirl.create(:local)
     evento =  FactoryGirl.create(:evento)
 
     visit edit_evento_path(evento)
-    preencher_e_verificar_evento
+    fill_in 'Nome', :with => "Festival de Bandas de Garagem"
+    fill_in 'Data', :with => "14/06/2013"
+
+    select "#{local.nome}", from: "Local"
+
+    click_button 'Salvar'
+    
+    page.should have_content "Nome: Festival de Bandas de Garagem"
+    page.should have_content "Data: 14/06/2013"
+    page.should have_content "Local: #{local.nome}"
   end
 
   scenario 'deletar evento' do 
-    evento =  FactoryGirl.create(:evento)
+    local = FactoryGirl.create(:local)
+    
+    visit new_evento_path
+    fill_in 'Nome', :with => "Festival de Bandas de Garagem"
+    fill_in 'Data', :with => "14/06/2013"
+    select "#{local.nome}", from: "Local"
+
+    click_button 'Salvar'
 
     visit eventos_path
+    
     click_link 'Excluir'
 
     page.should_not have_content "Nome: Festival de Bandas de Garagem"

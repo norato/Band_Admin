@@ -30,7 +30,7 @@ feature 'Gerenciar a Ordem das Músicas' do
     repertorio = FactoryGirl.create(:repertorio)
     musica.id, repertorio.id = 1 , 1
 
-    visit new_ordemmusica_path
+    visit edit_ordemmusica_path(ordemmusica)
     
     fill_in 'Ordem', :with => 1
     select "#{musica.nome}", from: 'Música'

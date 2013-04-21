@@ -1,3 +1,8 @@
 class Evento < ActiveRecord::Base
-  attr_accessible :data, :nome
+  attr_accessible :data, :nome, :local_id
+  belongs_to :local
+
+  def local
+  	Local.find(local_id)
+  end
 end

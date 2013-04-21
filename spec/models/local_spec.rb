@@ -22,4 +22,14 @@ describe Local do
     local.proprietario_id = proprietario.id
     local.proprietario.nome.should == proprietario.nome
   end
+
+  it 'abriga vários Eventos' do
+    local = FactoryGirl.create(:local)
+
+    4.times do
+      local.eventos << FactoryGirl.create(:evento)
+    end
+
+    local.eventos.count.should == 4
+  end
 end

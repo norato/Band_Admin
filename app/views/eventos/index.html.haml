@@ -3,10 +3,12 @@
 	%tr
 		%th Nome
 		%th Data
+		%th Local
 		-@eventos.each do |evento|
 			%tr
 				%td= evento.nome
 				%td= evento.data
+				%td= evento.local.nome
 				
 				%td= link_to 'Show', evento
 				%td= link_to 'Editar', edit_evento_path(evento)

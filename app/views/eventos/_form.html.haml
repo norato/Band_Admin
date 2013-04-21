@@ -1,4 +1,5 @@
 = semantic_form_for (@evento) do |form|
   = form.input :nome, :label => 'Nome'
   = form.input :data, :label => 'Data'
+  = form.input :local_id, as: :select, collection: Local.all.map { |local| [local.nome, local.id] }, prompt: false, :label => "Local"
   = form.submit 'Salvar'

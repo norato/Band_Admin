@@ -1,10 +1,13 @@
 %p#notice= notice
 %p
-	%b Nome:
-	= @evento.nome
+  %b Nome:
+  = @evento.nome
 %p
-	%b Data:
-	= @evento.data
+  %b Data:
+  = @evento.data
+%p
+  %b Local:
+  = @evento.local.nome
 
 = link_to 'Editar', edit_evento_path(@evento)
 = link_to 'Voltar', eventos_path
