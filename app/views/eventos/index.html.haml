@@ -5,12 +5,14 @@
 		%th Data
 		%th Local
 		%th Organizador
+		%th Repertório
 		-@eventos.each do |evento|
 			%tr
 				%td= evento.nome
 				%td= evento.data
 				%td= evento.local.nome
 				%td= evento.organizador.nome
+				%td= evento.repertorio.nome
 				
 				%td= link_to 'Show', evento
 				%td= link_to 'Editar', edit_evento_path(evento)

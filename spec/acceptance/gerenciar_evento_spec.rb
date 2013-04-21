@@ -5,14 +5,16 @@ require 'spec_helper'
 
 feature 'Gerenciar Eventos' do
   scenario 'adicionar evento' do
-
     local = FactoryGirl.create(:local)
     organizador = FactoryGirl.create(:organizador)
+    repertorio = FactoryGirl.create(:repertorio)
+
     visit new_evento_path
     fill_in 'Nome', :with => "Festival de Bandas de Garagem"
     fill_in 'Data', :with => "14/06/2013"
     select "#{local.nome}", from: "Local"
     select "#{organizador.nome}", from: "Organizador"
+    select "#{repertorio.nome}", from: "Repertório"
 
     click_button 'Salvar'
     
@@ -20,12 +22,15 @@ feature 'Gerenciar Eventos' do
     page.should have_content "Data: 14/06/2013"
     page.should have_content "Local: #{local.nome}"
     page.should have_content "Organizador: #{organizador.nome}"
+    page.should have_content "Repertório: #{repertorio.nome}"
   
   end
 
   scenario 'editar evento' do
     local = FactoryGirl.create(:local)
     organizador = FactoryGirl.create(:organizador)
+    repertorio = FactoryGirl.create(:repertorio)
+
     evento =  FactoryGirl.create(:evento)
 
 
@@ -34,6 +39,7 @@ feature 'Gerenciar Eventos' do
     fill_in 'Data', :with => "14/06/2013"
     select "#{local.nome}", from: "Local"
     select "#{organizador.nome}", from: "Organizador"
+    select "#{repertorio.nome}", from: "Repertório"
 
     click_button 'Salvar'
     
@@ -41,17 +47,20 @@ feature 'Gerenciar Eventos' do
     page.should have_content "Data: 14/06/2013"
     page.should have_content "Local: #{local.nome}"
     page.should have_content "Organizador: #{organizador.nome}"
+    page.should have_content "Repertório: #{repertorio.nome}"
   end
 
   scenario 'deletar evento' do 
     local = FactoryGirl.create(:local)
     organizador = FactoryGirl.create(:organizador)
+    repertorio = FactoryGirl.create(:repertorio)
     
     visit new_evento_path
     fill_in 'Nome', :with => "Festival de Bandas de Garagem"
     fill_in 'Data', :with => "14/06/2013"
     select "#{local.nome}", from: "Local"
     select "#{organizador.nome}", from: "Organizador"
+    select "#{repertorio.nome}", from: "Repertório"
 
     click_button 'Salvar'
 

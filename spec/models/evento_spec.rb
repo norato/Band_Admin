@@ -18,10 +18,18 @@ describe Evento do
   end
 
   it 'é organizado por um Organizador' do
-    local = FactoryGirl.create(:local)
     organizador = FactoryGirl.create(:organizador)
+    evento = FactoryGirl.create(:evento)
 
     evento.organizador_id = organizador.id
     evento.organizador.nome.should == organizador.nome
+  end
+
+  it 'é tocado um Repertório' do
+    repertorio = FactoryGirl.create(:repertorio)
+    evento = FactoryGirl.create(:evento)
+
+    evento.repertorio_id = repertorio.id
+    evento.repertorio.nome.should == repertorio.nome
   end
 end

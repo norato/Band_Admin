@@ -11,6 +11,9 @@
 %p
   %b Organizador:
   = @evento.organizador.nome
+%p
+  %b Repertório:
+  = @evento.repertorio.nome
 
 = link_to 'Editar', edit_evento_path(@evento)
 = link_to 'Voltar', eventos_path

@@ -3,4 +3,5 @@
   = form.input :data, :label => 'Data'
   = form.input :local_id, as: :select, collection: Local.all.map { |local| [local.nome, local.id] }, prompt: false, :label => "Local"
   = form.input :organizador_id, as: :select, collection: Organizador.all.map { |organizador| [organizador.nome, organizador.id] }, prompt: false, :label => "Organizador"
+  = form.input :repertorio_id, as: :select, collection: Repertorio.all.map { |repertorio| [repertorio.nome, repertorio.id] }, prompt: false, :label => "Repertório"
   = form.submit 'Salvar'
