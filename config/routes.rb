@@ -6,4 +6,7 @@ BandAdmin::Application.routes.draw do
   resources :repertorios
   resources :musicas
   resources :ordemmusicas
+
+  get "pages/inicio"
+  root :to => 'pages#inicio'
 end

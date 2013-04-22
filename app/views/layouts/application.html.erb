@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BandAdmin</title>
+  <title><%= title %></title>
+  <%= include_gon %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <!--[if lt IE 9]>
+    <script src="/assets/html5shiv.js"></script>
+  <![endif]-->
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= render 'layouts/header'%>
+  <div class="container round">
+    <div class="navigation">
+      <%= render 'layouts/navigation' %>
+    </div>
+    <div class="content" id="content">
+      <%= yield %>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
 </body>
 </html>
