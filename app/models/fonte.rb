@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class Fonte < ActiveRecord::Base
-  attr_accessible :corrente, :nome , :comprimento, :largura, :saidas
+  # attr_accessible :corrente, :nome , :comprimento, :largura, :saidas
   has_many :saidas, class_name: 'SaidaFonte'
   belongs_to :mala
   

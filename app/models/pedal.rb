@@ -1,5 +1,5 @@
 class Pedal < ActiveRecord::Base
-  attr_accessible :comprimento, :corrente, :largura, :nome, :tensao, :tipo, :mala, :saida_fonte
+  # attr_accessible :comprimento, :corrente, :largura, :nome, :tensao, :tipo, :mala, :saida_fonte
   belongs_to :mala
   has_one :saida_fonte
 

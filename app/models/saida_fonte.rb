@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class SaidaFonte < ActiveRecord::Base
-  attr_accessible :centro_negativo, :tensao, :fonte, :pedal
+  # attr_accessible :centro_negativo, :tensao, :fonte, :pedal
   belongs_to :fonte
   belongs_to :pedal
   

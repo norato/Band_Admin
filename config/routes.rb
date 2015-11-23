@@ -9,4 +9,5 @@ BandAdmin::Application.routes.draw do
 
   get "pages/inicio"
   root :to => 'pages#inicio'
+  mount Dinde::Engine => "/dinde"
 end

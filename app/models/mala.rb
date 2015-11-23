@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class Mala < ActiveRecord::Base
-  attr_accessible :comprimento, :largura, :nome, :pedais, :fontes
+  # attr_accessible :comprimento, :largura, :nome, :pedais, :fontes
   has_many :pedais
   has_many :fontes
 

@@ -1,5 +1,5 @@
 class Evento < ActiveRecord::Base
-  attr_accessible :data, :nome, :local_id, :organizador_id, :repertorio_id
+  # attr_accessible :data, :nome, :local_id, :organizador_id, :repertorio_id
   belongs_to :local
   belongs_to :organizador
   belongs_to :repertorio
